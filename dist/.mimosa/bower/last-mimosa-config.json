@@ -18,18 +18,13 @@
         "knockout-2.3.0.debug.js"
       ],
       "bootstrap": [
-        "docs/assets/js/bootstrap.js",
-        "docs/assets/css/bootstrap.css",
-        "docs/assets/css/bootstrap-responsive.css"
-      ],
-      "font-awesome": [
-        "css/font-awesome.css",
-        "css/font-awesome-ie7.css"
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css"
       ]
     },
     "overridesObjects": {
-      "font-awesome": {
-        "font": "../../font"
+      "bootstrap": {
+        "dist/fonts": "../../fonts"
       },
       "durandal": {
         "img": "../../images",
@@ -43,16 +38,11 @@
         "knockout-2.3.0.debug.js"
       ],
       "bootstrap": [
-        "docs/assets/js/bootstrap.js",
-        "docs/assets/css/bootstrap.css",
-        "docs/assets/css/bootstrap-responsive.css"
-      ],
-      "font-awesome": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
         {
-          "font": "../../font"
-        },
-        "css/font-awesome.css",
-        "css/font-awesome-ie7.css"
+          "dist/fonts": "../../fonts"
+        }
       ],
       "durandal": [
         {

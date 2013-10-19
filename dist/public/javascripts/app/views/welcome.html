@@ -1,21 +1,10 @@
 ﻿<section>
-    <h2>Available tools</h2>
-    <ul data-bind="foreach: router.navigationModel">
-        <!-- ko if: hash != '#' -->
-        <li data-bind="css: { active: isActive }">
-            <a data-bind="attr: { href: hash }, html: title"></a>
-        </li>
-        <!-- /ko -->
-    </ul>
-    <h2>Credits</h2>
+    <h2>What?</h2>
+    Well, this section should either show a start page, perhaps with recent searches or popular links, or a search results page listing the current results. Currently, though, this is a static section.
     <ul>
-        <li>Durandal</li>
-        <li>Mimosa</li>
-        <li>Bower</li>
-        <li>JQuery</li>
-        <li>Twitter Boostrap</li>
-        <li>Knockout</li>
-        <li>RequireJS</li>
-        <li>jquery-base64</li>
+    	<li>Try searching for a country or a city in the searchbox</li>
+    	<li>Try searching for a link (tip: Google, Bing and Wikipedia)</li>
+    	<li>ToDo: Add auto-complete for date/time</li>
+    	<li>ToDo: Add partial auto-complete, e.g. key=<i>insert value here</i></li>
     </ul>
 </section>

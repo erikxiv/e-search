@@ -1,0 +1,7 @@
+[
+{"value": "Google", "url": "http://www.google.com", "tokens": ["Google", "link"], "type": "link"},
+{"value": "Bing", "url": "http://www.bing.com", "tokens": ["Bing", "link"], "type": "link"},
+{"value": "Wikipedia", "url": "http://www.wikipedia.com", "tokens": ["Wikipedia", "link"], "type": "link"},
+{"value": "Admin (production)", "url": "http://admin.prod", "tokens": ["Admin", "production", "link"], "type": "link"},
+{"value": "Admin (test)", "url": "http://admin.test", "tokens": ["Admin", "test", "link"], "type": "link"}
+]
