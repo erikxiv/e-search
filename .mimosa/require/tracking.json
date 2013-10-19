@@ -92,15 +92,15 @@
         ],
         "exports": "jQuery"
       },
-      "jquery-base64": {
-        "deps": [
-          "jquery"
-        ],
-        "exports": "jQuery"
-      },
       "jquery-text-selection": {
         "deps": [
           "bootstrap"
+        ],
+        "exports": "jQuery"
+      },
+      "jquery-base64": {
+        "deps": [
+          "jquery"
         ],
         "exports": "jQuery"
       }
@@ -113,10 +113,10 @@
       "bootstrap": "../vendor/bootstrap/bootstrap",
       "bootstrap-tabs": "../vendor/bootstrap/bootstrap-tabs",
       "typeahead": "../vendor/typeahead.js/typeahead",
+      "jquery-text-selection": "jquery-text-selection",
       "durandal": "../vendor/durandal",
       "plugins": "../vendor/durandal/plugins",
-      "transitions": "../vendor/durandal/transitions",
-      "jquery-text-selection": "jquery-text-selection"
+      "transitions": "../vendor/durandal/transitions"
     }
   },
   "requireFiles": [
