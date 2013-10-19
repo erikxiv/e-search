@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>e-search</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/styles.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="applicationHost">
+      <div class="alert alert-info">
+        <h4>
+          e-search loading...
+        </h4>
+      </div>
+    </div>
+
+    {{#reload}}
+      <script src="socket.io/socket.io.js"></script>
+      <script src="/javascripts/app/reload-client.js"></script>
+    {{/reload}}
+
+    {{#optimize}}
+      <script src="/javascripts/app/main-built.js"></script>
+    {{/optimize}}
+
+    {{^optimize}}
+      <script src="/javascripts/vendor/requirejs/require.js" data-main="/javascripts/app/main.js"></script>
+    {{/optimize}}
+
+  </body>
+</html>

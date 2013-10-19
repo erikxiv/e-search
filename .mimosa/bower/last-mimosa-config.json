@@ -1,0 +1,57 @@
+{
+  "bowerDir": {
+    "path": ".mimosa/bower/bower_components",
+    "clean": true,
+    "pathFull": ""
+  },
+  "copy": {
+    "enabled": true,
+    "trackChanges": true,
+    "outRoot": "",
+    "defaultStrategy": "packageRoot",
+    "strategy": {},
+    "forceLatest": true,
+    "exclude": [],
+    "overridesArrays": {
+      "knockout.js": [
+        "knockout.js",
+        "knockout-2.3.0.debug.js"
+      ],
+      "bootstrap": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css"
+      ]
+    },
+    "overridesObjects": {
+      "bootstrap": {
+        "dist/fonts": "../../fonts"
+      },
+      "durandal": {
+        "img": "../../images",
+        "js": "durandal",
+        "css": "durandal"
+      }
+    },
+    "mainOverrides": {
+      "knockout.js": [
+        "knockout.js",
+        "knockout-2.3.0.debug.js"
+      ],
+      "bootstrap": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        {
+          "dist/fonts": "../../fonts"
+        }
+      ],
+      "durandal": [
+        {
+          "img": "../../images",
+          "js": "durandal",
+          "css": "durandal"
+        }
+      ]
+    },
+    "pathMod": null
+  }
+}
