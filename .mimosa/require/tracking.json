@@ -20,6 +20,12 @@
         ],
         "exports": "jQuery"
       },
+      "jquery-text-selection": {
+        "deps": [
+          "bootstrap"
+        ],
+        "exports": "jQuery"
+      },
       "jquery-base64": {
         "deps": [
           "jquery"
@@ -37,7 +43,8 @@
     "/javascripts/app/viewmodels/shell.js": [
       "plugins/router",
       "durandal/app",
-      "typeahead"
+      "typeahead",
+      "jquery-text-selection"
     ],
     "/javascripts/app/viewmodels/welcome.js": [
       "plugins/router"
@@ -52,6 +59,7 @@
       "bootstrap": "../vendor/bootstrap/bootstrap",
       "bootstrap-tabs": "../vendor/bootstrap/bootstrap-tabs",
       "typeahead": "../vendor/typeahead.js/typeahead",
+      "jquery-text-selection": "jquery-text-selection",
       "durandal": "../vendor/durandal",
       "plugins": "../vendor/durandal/plugins",
       "transitions": "../vendor/durandal/transitions"
@@ -89,6 +97,12 @@
           "jquery"
         ],
         "exports": "jQuery"
+      },
+      "jquery-text-selection": {
+        "deps": [
+          "bootstrap"
+        ],
+        "exports": "jQuery"
       }
     },
     "paths": {
@@ -101,7 +115,8 @@
       "typeahead": "../vendor/typeahead.js/typeahead",
       "durandal": "../vendor/durandal",
       "plugins": "../vendor/durandal/plugins",
-      "transitions": "../vendor/durandal/transitions"
+      "transitions": "../vendor/durandal/transitions",
+      "jquery-text-selection": "jquery-text-selection"
     }
   },
   "requireFiles": [

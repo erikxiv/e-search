@@ -7,6 +7,7 @@ requirejs.config({
         'bootstrap': '../vendor/bootstrap/bootstrap',
         'bootstrap-tabs': '../vendor/bootstrap/bootstrap-tabs',
         'typeahead': '../vendor/typeahead.js/typeahead',
+        'jquery-text-selection': 'jquery-text-selection',
         'durandal':'../vendor/durandal',
         'plugins' : '../vendor/durandal/plugins',
         'transitions' : '../vendor/durandal/transitions'
@@ -22,6 +23,10 @@ requirejs.config({
         },
         'typeahead': {
             deps: ['jquery'],
+            exports: 'jQuery'
+        },
+        'jquery-text-selection': {
+            deps: ['bootstrap'],
             exports: 'jQuery'
         },
         'jquery-base64': {
