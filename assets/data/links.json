@@ -1,0 +1,11 @@
+[
+	{"value": "Home", "url": "#", "tokens": ["Home", "link"], "type": "link"},
+	{"value": "Logs", "url": "#logs", "tokens": ["Logs", "link"], "type": "link"},
+	{"value": "About", "url": "#about", "tokens": ["About", "What", "Why", "Who", "link"], "type": "link"},
+	{"value": "Syntax", "url": "#syntax", "tokens": ["Syntax", "How", "Tutorial", "link"], "type": "link"},
+	{"value": "Google", "url": "http://www.google.com", "tokens": ["Google", "link"], "type": "link"},
+	{"value": "Bing", "url": "http://www.bing.com", "tokens": ["Bing", "link"], "type": "link"},
+	{"value": "Wikipedia", "url": "http://www.wikipedia.com", "tokens": ["Wikipedia", "link"], "type": "link"},
+	{"value": "Admin (production)", "url": "http://admin.prod", "tokens": ["Admin", "production", "link"], "type": "link"},
+	{"value": "Admin (test)", "url": "http://admin.test", "tokens": ["Admin", "test", "link"], "type": "link"}
+]

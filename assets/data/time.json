@@ -1,0 +1,8 @@
+[
+	{"value": "time >= HH:mm:ss", "pattern": "time >= ${1:${HH}}:${2:${mm}}:${3:${ss}}", "tokens": ["time", ">"], "type": "time"},
+	{"value": "time <= HH:mm:ss", "pattern": "time <= ${1:${HH}}:${2:${mm}}:${3:${ss}}", "tokens": ["time", "<"], "type": "time"},
+	{"value": "date >= YYYY-MM-DD", "pattern": "date >= ${1:${YYYY}}-${2:${MM}}-${3:${DD}}", "tokens": ["date", ">"], "type": "time"},
+	{"value": "date <= YYYY-MM-DD", "pattern": "date <= ${1:${YYYY}}-${2:${MM}}-${3:${DD}}", "tokens": ["date", "<"], "type": "time"},
+	{"value": "datetime >= YYYY-MM-DD HH:mm:ss", "pattern": "datetime >= ${1:${YYYY}}-${2:${MM}}-${3:${DD}} ${4:${HH}}:${5:${mm}}:${6:${ss}}", "tokens": ["datetime", "time", ">"], "type": "time"},
+	{"value": "datetime <= YYYY-MM-DD HH:mm:ss", "pattern": "datetime <= ${1:${YYYY}}-${2:${MM}}-${3:${DD}} ${4:${HH}}:${5:${mm}}:${6:${ss}}", "tokens": ["datetime", "time", "<"], "type": "time"}
+]

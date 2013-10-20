@@ -21,7 +21,7 @@
               </div>
             </li>
           </ul>
-          <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
+          <div class="loader pull-right" data-bind="css: { active: activities.isWorking }">
             <i class="icon-spinner icon-2x icon-spin"></i>
           </div>
           <ul class="nav navbar-nav navbar-right">
@@ -39,11 +39,15 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <div id="filters" class="container">
       <div class="panel panel-primary hidden">
         <div id="message" class="panel-heading">This is some text</div>
         <!-- <div class="body">This is some text</div> -->
       </div>
+    <div id="filters" class="container">
+      <div class="filter label label-info">Search <span data-bind="text:logsearch.mode">All</span></div>
+      <!-- ko foreach: logsearch.filters -->
+      <div class="filter label label-success"><span class="flabel" data-bind="text: label"></span><span class="fclose">&nbsp;&times;</span></div>
+      <!-- /ko -->
     </div>
     
     <div class="container page-host" data-bind="router: { transition:'entrance', cacheViews:true }"></div>

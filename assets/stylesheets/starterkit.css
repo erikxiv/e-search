@@ -7,6 +7,9 @@
 .filter {
     margin-right: 5px;
 }
+.fclose {
+    cursor: pointer;
+}
 
 .splash {
     text-align: center;

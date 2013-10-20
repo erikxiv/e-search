@@ -1,3 +1,3 @@
 [
-	{"value": "Nationality = \"value\"", "pattern": "Nationality = \"${1:insert value here}\"", "tokens": ["nationality"], "type": "key-value"}
+	{"value": "Nationality = \"value\"", "key": "nationality", "pattern": "Nationality = \"${1:insert value here}\"", "tokens": ["nationality"], "type": "key-value"}
 ]

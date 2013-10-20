@@ -1,4 +1,5 @@
-﻿define(['plugins/router', 'durandal/app', 'typeahead', 'jquery-text-selection'], function (router, app, typeahead, jts) {
+﻿define(['plugins/router', 'durandal/app', 'typeahead', 'jquery-text-selection', 'activities','logsearch'], 
+  function (router, app, typeahead, jts, activities, logsearch) {
     var MyEngine = {
         compile: function(template) {
             return {
@@ -22,30 +23,40 @@
         : re_keyvalue.test(s) ? 'key-value'
         : 'none';
     }
-    var add = function(label) {
+    var add = function(filter) {
       $('#search').typeahead('setQuery', '');
-      $('#filters').append('<div class="filter label label-success">'+label+'&nbsp;<span>&times;</span></div>');
+      logsearch.filters.push(filter);
+      router.navigate('#logs');
     }
     var trytoadd = function() {
       s = $('#search').val();
       type = validate(s);
-      if (type !== 'none') {
-        add(s);
+      if (type === 'key-value') {
+        var m = /^\s*([a-zA-Z]+)\s*=\s*"([^"]*)"\s*$/.exec(s);
+        add({value: m[2], type: type, key: m[1], label: m[1] + " = " + m[2]});
+      }
+      else if (type !== 'none') {
+        add({value: s, type: type, label: s});
       }
     }
 
     return {
         router: router,
+        activities: activities,
+        logsearch: logsearch,
         activate: function () {
             router.map([
-                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true }
+                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
+                { route: 'logs', title:'Log Results', moduleId: 'viewmodels/logresults', nav: true }
             ]).buildNavigationModel();
+            activities.setWorking(true);
             return router.activate();
         },
         autocompleted: function(obj, datum) {
             // Note: this function will be called as a jquery event trigger ("this" will be a html element)
             // Check if this is a link, if so, follow it
             if (datum.type=='link') {
+              $('#search').typeahead('setQuery', '');
               window.location = datum.url;
             }
             else if (datum.type=='time') {
@@ -68,7 +79,7 @@
               s = $(this).addTabStops(s);
             }
             else {
-              add(datum.value);
+              add({type:datum.type, value:datum.value, label:datum.type + " = " + datum.value});
             }
         },
         compositionComplete: function (view, parent) {
@@ -114,6 +125,8 @@
             // $('#search').popover({content: "Popover", placement: "bottom"}).popover("show");
             $('#search').on("keyup", function() {$('#message').html(validate($(this).val()))});
             $('#search').on("keydown", function(e) {if (e.which===13) trytoadd();});
+            $('#filters').on("click", ".filter .fclose", function(e) {logsearch.remove($(e.target).parent().children('.flabel').text())});
+            activities.setWorking(false);
         }
     };
 });
