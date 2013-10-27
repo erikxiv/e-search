@@ -36,7 +36,8 @@
   },
   "deps": {
     "/javascripts/app/activities.js": [
-      "knockout"
+      "knockout",
+      "jquery"
     ],
     "/javascripts/app/logsearch.js": [
       "knockout"
@@ -47,6 +48,12 @@
       "durandal/system"
     ],
     "/javascripts/app/viewmodels/logresults.js": [
+      "plugins/router",
+      "jquery",
+      "activities",
+      "logsearch"
+    ],
+    "/javascripts/app/viewmodels/reporesults.js": [
       "plugins/router",
       "jquery",
       "activities",
