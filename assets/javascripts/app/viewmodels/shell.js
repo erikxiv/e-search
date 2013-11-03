@@ -1,4 +1,4 @@
-﻿define(['plugins/router', 'durandal/app', 'typeahead', 'jquery-text-selection', 'activities','logsearch'], 
+define(['plugins/router', 'durandal/app', 'typeahead', 'jquery-text-selection', 'activities','logsearch'], 
 	function (router, app, typeahead, jts, activities, logsearch) {
 		var MyEngine = {
 			compile: function(template) {
@@ -13,7 +13,7 @@
 			}
 		};
 		logsearch.filters.subscribe(function(a){
-			var q = $.map(logsearch.filters(), function(n, i) {return n.label}).join(",");
+			var q = $.map(logsearch.filters(), function(n, i) {return n.label;}).join(",");
 			console.log("lf: "+q);
 		});
 		var validate = function(s) {
@@ -26,7 +26,7 @@
 				: re_datetime.test(s) ? 'time'
 				: re_keyvalue.test(s) ? 'key-value'
 				: 'none';
-		}
+		};
 		var add = function(filter) {
 			$('#search').typeahead('setQuery', '');
 					console.log("logs? " + router.activeInstruction().fragment + " " + filter.label);
@@ -40,10 +40,10 @@
 			}
 			else
 				logsearch.filters.push(filter);
-		}
+		};
 		var trytoadd = function() {
 			s = $('#search').val();
-			if (s && s!="") {
+			if (s && s!=="") {
 				type = validate(s);
 				if (type === 'key-value') {
 					var m = /^\s*([a-zA-Z]+)\s*=\s*(.*)\s*$/.exec(s);
@@ -63,7 +63,7 @@
 					logsearch.filters.push({value: s, type: "none", label: "q="+s});
 				}
 			}
-		}
+		};
 
 		return {
 				router: router,
@@ -152,7 +152,7 @@
 						// $('#search').popover({content: "Popover", placement: "bottom"}).popover("show");
 						// $('#search').on("keyup", function() {$('#message').html(validate($(this).val()))});
 						$('#search').on("keydown", function(e) {if (e.which===13) trytoadd();});
-						$('#filters').on("click", ".filter .fclose", function(e) {logsearch.remove($(e.target).parent().children('.flabel').text())});
+						$('#filters').on("click", ".filter .fclose", function(e) {logsearch.remove($(e.target).parent().children('.flabel').text());});
 						activities.setWorking(false, "routing");
 				}
 		};

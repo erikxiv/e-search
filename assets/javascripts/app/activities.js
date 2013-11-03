@@ -19,5 +19,5 @@ define(['knockout', 'jquery'], function (ko, jquery) {
 				delete _tasks[taskname];
 			_working(! $.isEmptyObject(_tasks));
 		}
-	}
+	};
 });

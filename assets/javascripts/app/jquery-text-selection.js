@@ -27,16 +27,16 @@
       if (markers.length <= index+1)
         $(this).off("keydown", act);
     }
-    else if (e.which === 32 // space
-      || e.which === 8 // backspace
-      || e.which === 16 // shift
-      || e.which === 18 // alt
-      || e.which === 188 // ,
-      || e.which === 189 // -
-      || e.which === 190 // .
-      || (e.which >= 48 && e.which <= 57) // 1-9
-      || (e.which >= 96 && e.which <= 105) // 1-9 numpad
-      || (e.which >= 65 && e.which <= 90) // a-z
+    else if (e.which === 32 || // space
+      e.which === 8 || // backspace
+      e.which === 16 || // shift
+      e.which === 18 || // alt
+      e.which === 188 || // ,
+      e.which === 189 || // -
+      e.which === 190 || // .
+      (e.which >= 48 && e.which <= 57) || // 1-9
+      (e.which >= 96 && e.which <= 105) || // 1-9 numpad
+      (e.which >= 65 && e.which <= 90) // a-z
        ) {
       // Ignore
     }
@@ -44,7 +44,7 @@
       // jump out
       $(this).off("keydown", act);
     }
-  }
+  };
 
   var generate_markers = function(pattern) {
     markers = [];
@@ -59,7 +59,7 @@
       pattern = pattern.replace(re, "$2");
     }
     return pattern;
-  }
+  };
 
   jQuery.fn.addTabStops = function(s) {
     element = this;
@@ -69,29 +69,29 @@
     if (markers.length > index+1)
       $(this).on("keydown", act);
     return s;
-  }
+  };
 
   // End of quick and dirty section
 
   jQuery.fn.getCursorPosition = function(){
-    if(this.length == 0) return -1;
+    if(this.length === 0) return -1;
     return $(this).getSelectionStart();
-  }
+  };
  
   jQuery.fn.setCursorPosition = function(position){
-    if(this.length == 0) return this;
+    if(this.length === 0) return this;
     return $(this).setSelection(position, position);
-  }
+  };
  
   jQuery.fn.getSelection = function(){
-    if(this.length == 0) return -1;
+    if(this.length === 0) return -1;
     var s = $(this).getSelectionStart();
     var e = $(this).getSelectionEnd();
     return this[0].value.substring(s,e);
-  }
+  };
  
   jQuery.fn.getSelectionStart = function(){
-    if(this.length == 0) return -1;
+    if(this.length === 0) return -1;
     input = this[0];
  
     var pos = input.value.length;
@@ -99,17 +99,17 @@
     if (input.createTextRange) {
       var r = document.selection.createRange().duplicate();
       r.moveEnd('character', input.value.length);
-      if (r.text == '') 
+      if (r.text === '') 
         pos = input.value.length;
       pos = input.value.lastIndexOf(r.text);
     } else if(typeof(input.selectionStart)!="undefined")
       pos = input.selectionStart;
  
     return pos;
-  }
+  };
  
   jQuery.fn.getSelectionEnd = function(){
-    if(this.length == 0) return -1;
+    if(this.length === 0) return -1;
     input = this[0];
  
     var pos = input.value.length;
@@ -117,17 +117,17 @@
     if (input.createTextRange) {
       var r = document.selection.createRange().duplicate();
       r.moveStart('character', -input.value.length);
-      if (r.text == '') 
+      if (r.text === '') 
         pos = input.value.length;
       pos = input.value.lastIndexOf(r.text);
     } else if(typeof(input.selectionEnd)!="undefined")
       pos = input.selectionEnd;
  
     return pos;
-  }
+  };
  
   jQuery.fn.setSelection = function(selectionStart, selectionEnd) {
-    if(this.length == 0) return this;
+    if(this.length === 0) return this;
     input = this[0];
  
     if (input.createTextRange) {
@@ -142,5 +142,5 @@
     }
  
     return this;
-  }
+  };
 })( jQuery );

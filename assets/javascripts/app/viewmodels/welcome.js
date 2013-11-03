@@ -1,8 +1,8 @@
-﻿define(['plugins/router', 'activities', 'logsearch'], 
+define(['plugins/router', 'activities', 'logsearch'], 
 	function (router, activities, logsearch) {
 	var myjsonpfunction = function(data) {
 		$('body').prepend("Got data");
-	}
+	};
 	return {
 		router: router,
 		activities: activities,

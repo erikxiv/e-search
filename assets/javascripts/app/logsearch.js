@@ -17,10 +17,10 @@ define(['knockout'], function (ko) {
 			return result;
 		},
 		remove: function(label) {
-			this.filters.remove(function(item) {return item.label===label});
+			this.filters.remove(function(item) {return item.label===label;});
 		},
 		clear: function() {
 			this.filters.removeAll();
 		}
-	}
+	};
 });

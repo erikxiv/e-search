@@ -7,10 +7,10 @@ define(['plugins/router', 'jquery','activities', 'logsearch'], function (router,
 		if (active) {
 			console.log("repo add");
 			$('#reporesults').append(
-				'<p><h5><a href="'+result.unescapedUrl+'">'+result.title+'</a></h5>'
-				+'<span>'+result.content+'</span><br/>'
-				+'<a class="text-muted" href="'+result.unescapedUrl+'">'+result.url+'</a>'
-				+'</p><br/>');
+				'<p><h5><a href="'+result.unescapedUrl+'">'+result.title+'</a></h5>'+
+				'<span>'+result.content+'</span><br/>'+
+				'<a class="text-muted" href="'+result.unescapedUrl+'">'+result.url+'</a>'+
+				'</p><br/>');
 		}
 	};
 	var searchMore = function() {
@@ -18,37 +18,38 @@ define(['plugins/router', 'jquery','activities', 'logsearch'], function (router,
 				console.log("reposearch start: working " + activities.isActive("reposearch"));
 			if (!activities.isActive("reposearch") && _maxStart > _nextResult) {
 				activities.setWorking(true, "reposearch");
-				var q = $.map(logsearch.filters(), function(n, i) {return encodeURIComponent(n.value)}).join("%20");
+				var q = $.map(logsearch.filters(), function(n, i) {return encodeURIComponent(n.value);}).join("%20");
 				console.log("reposearch "+q);
 				setTimeout(function() {
-					var url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+q+"&rsz="+_resultSize+"&start="+_nextResult+"&callback=define";
-					// $('body').prepend(url+"<br/>");
-					require([url], function (data) {
-						if (data.responseStatus==200) {
-							$.each(data.responseData.results,function(i,row){
-								addResult(row);
-								_nextResult = _nextResult + 1;
-							});
-							var pages = data.responseData.cursor.pages;
-							if (pages) {
-								var last_start = pages[pages.length-1].start;
-								_maxStart = last_start > _maxStart ? last_start : _maxStart;
+					$.ajax({
+						url: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+q+"&rsz="+_resultSize+"&start="+_nextResult,
+						dataType: 'jsonp',
+						success: function (data) {
+							if (data.responseStatus==200) {
+								$.each(data.responseData.results,function(i,row){
+									addResult(row);
+									_nextResult = _nextResult + 1;
+								});
+								var pages = data.responseData.cursor.pages;
+								if (pages) {
+									var last_start = pages[pages.length-1].start;
+									_maxStart = last_start > _maxStart ? last_start : _maxStart;
+								}
 							}
+							activities.setWorking(false, "reposearch");
 						}
-						activities.setWorking(false, "reposearch");
-						// $('body').prepend("next: "+_nextResult + " max:" + _maxStart+ "<br/>");
 					});
 				}, 10);
 			}
 		}
-	}
+	};
 	var newSearch = function() {
 		if (active) {
 			$('#reporesults').html("");
 			_nextResult = 0;
 			searchMore();
 		}
-	}
+	};
 
 	return {
 		router: router,
